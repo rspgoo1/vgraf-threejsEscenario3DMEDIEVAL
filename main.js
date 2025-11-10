@@ -275,8 +275,11 @@ function iniciarEscenario() {
     contenedor.appendChild(renderizador.domElement);
 
     // RESTAURAR EL FONDO HDR PERO SIN TEXTURAS REFLECTIVAS
-    establecerFondoCieloHDR('https://files.catbox.moe/d1yy7p.hdr');
-    
+    // Llamada con tu enlace del release
+establecerFondoCieloHDR(
+    'https://github.com/rspgoo1/vgraf-threejsEscenario3DMEDIEVAL/releases/download/v1.0/background.hdr'
+);
+
 
     controles = new OrbitControls(camara, renderizador.domElement);
     controles.target.set(0, 100, 0);
@@ -506,25 +509,32 @@ function cambiarNPC(nuevoEstado) {
 
 function establecerFondoCieloHDR(hdrRuta) {
     const rgbeLoader = new RGBELoader();
-    
-    rgbeLoader.load(hdrRuta, function (texture) {
-        // Usar el HDR solo como fondo, no como environment map para reflejos
-        const pmremGenerator = new THREE.PMREMGenerator(renderizador);
-        pmremGenerator.compileEquirectangularShader();
-        
-        const envMap = pmremGenerator.fromEquirectangular(texture).texture;
-        
-        // Solo establecer como fondo, no como environment map
-        escenario.background = envMap;
-        
-        texture.dispose();
-        pmremGenerator.dispose();
-        
-        console.log('Fondo HDR cargado (sin reflejos en materiales)');
-    }, undefined, function(error) {
-        console.error('Error al cargar el fondo HDR:', error);
-        escenario.background = new THREE.Color(0x87CEEB);
-    });
+
+    // Fondo temporal mientras carga
+    escenario.background = new THREE.Color(0x202020);
+    console.log('Cargando HDR desde:', hdrRuta);
+
+    rgbeLoader.load(
+        // ✅ Usamos corsproxy.io para hacer que GitHub libere el archivo correctamente
+        `https://corsproxy.io/?${encodeURIComponent(hdrRuta)}`,
+        function (texture) {
+            const pmremGenerator = new THREE.PMREMGenerator(renderizador);
+            pmremGenerator.compileEquirectangularShader();
+
+            const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+            escenario.background = envMap;
+
+            texture.dispose();
+            pmremGenerator.dispose();
+
+            console.log('✅ Fondo HDR cargado correctamente desde GitHub Release');
+        },
+        undefined,
+        function (error) {
+            console.error('❌ Error al cargar el fondo HDR:', error);
+            escenario.background = new THREE.Color(0x87CEEB); // cielo azul como fallback
+        }
+    );
 }
 
 function verificarRangoNPC() {
