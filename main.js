@@ -275,7 +275,8 @@ function iniciarEscenario() {
     contenedor.appendChild(renderizador.domElement);
 
     // RESTAURAR EL FONDO HDR PERO SIN TEXTURAS REFLECTIVAS
-    establecerFondoCieloHDR('Models/background/background.hdr');
+    establecerFondoCieloHDR('https://files.catbox.moe/d1yy7p.hdr');
+    
 
     controles = new OrbitControls(camara, renderizador.domElement);
     controles.target.set(0, 100, 0);
