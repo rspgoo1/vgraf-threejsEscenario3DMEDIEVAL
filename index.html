@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Escenario 3D: Aventura Medieval</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="icon" type="image/png" href="icono.png">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@400;700&display=swap');
+
+			:root {
+				--primary-color: #c49b3a;
+				--primary-dark: #a37d28;
+				--text-light: #ffffff;
+			}
+
+			#blocker {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.5);
+			}
+
+			#instructions {
+				width: 100%;
+				height: 100%;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				color: white; 
+
+				text-align: center;
+				font-size: 14px;
+				cursor: pointer;
+			}
+
+			/* FOOTER CON JERARQUÍA DE TAMAÑOS */
+			.footer-medieval {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				background: rgba(0, 0, 0, 0.85);
+				padding: 15px 10px;
+				color: white;
+				text-align: center;
+				z-index: 1000;
+				box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.7);
+			}
+
+			.footer-title {
+				font-family: 'MedievalSharp', cursive;
+				color: var(--primary-color);
+				font-size: 1.8rem;
+				margin: 8px 0;
+				font-weight: bold;
+				text-shadow: 0 0 10px rgba(196, 155, 58, 0.6);
+				letter-spacing: 1.5px;
+			}
+
+			.footer-controls {
+				font-family: 'Arial', sans-serif;
+				margin: 10px 0;
+				font-size: 1.1rem;
+				font-weight: bold;
+				line-height: 1.4;
+			}
+
+			.footer-controls strong {
+				color: var(--primary-color);
+			}
+
+			.footer-credits {
+				font-family: 'Arial', sans-serif;
+				margin: 8px 0;
+				font-size: 0.95rem;
+				color: #ccc;
+				line-height: 1.3;
+			}
+
+			@media (max-width: 700px) {
+				.footer-medieval {
+					padding: 12px 8px;
+				}
+				
+				.footer-title {
+					font-size: 1.4rem;
+				}
+				
+				.footer-controls {
+					font-size: 0.9rem;
+				}
+				
+				.footer-credits {
+					font-size: 0.8rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.footer-title {
+					font-size: 1.2rem;
+				}
+				
+				.footer-controls {
+					font-size: 0.8rem;
+				}
+				
+				.footer-credits {
+					font-size: 0.75rem;
+				}
+			}
+		</style>
+	</head>
+	<body> 
+		<!-- FOOTER CON JERARQUÍA DE TAMAÑOS -->
+		<footer class="footer-medieval">
+			<div class="footer-title">Escenario 3D: Aventura Medieval</div>
+			<div class="footer-controls">
+				<strong>Controles:</strong> WASD: Caminar | WASD + Shift: Correr | Espacio: Saltar | 
+				1: Golpe | 2: Patada | 3: Guardia | Ratón/Arrow keys: Mirar
+			</div>
+			<div class="footer-credits">
+				Créditos: Aguilar Pérez Nahum (23200135) - Contla Martínez Kevin Bertin (23200139) - Olvera Jiménez Ronaldo (23200151) Santiago Padilla Rubén (23200158) - 
+				 
+			</div>
+		</footer>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "./build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script> 
+		<script type="module" src="main.js"></script>
+	</body>
+</html>

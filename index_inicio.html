@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Escenario Medieval</title>
+  <link rel="icon" type="image/png" href="icono.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Roboto:wght@400;700&display=swap');
+
+    :root {
+      --primary-color: #c49b3a;
+      --primary-dark: #a37d28;
+      --text-light: #ffffff;
+      --bg-gradient: linear-gradient(135deg, #1a1a1a, #2d1f0f);
+      --surface: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      padding: 3rem 1rem 1rem;
+    }
+
+    h1 {
+      font-family: 'MedievalSharp', cursive;
+      margin: 0;
+      font-size: 6.2rem;
+      color: var(--primary-color);
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(196, 155, 58, 0.4);
+    }
+
+    p {
+      color: #bbb;
+      font-size: 1.1rem;
+    }
+
+    .games-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      width: 90%;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    h2 {
+      margin: 50;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-shadow: 0 0 6px rgba(196, 155, 58, 0.3);
+    }
+
+    .game-button {
+      background: linear-gradient(90deg, #c49b3a, #e0c36d);
+      color: #1e1e1e;
+      text-decoration: none;
+      text-align: center;
+      padding: 1.5rem 4.5rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s, background 0.3s;
+      margin-top: 40px;      /* espacio arriba del botón */
+      margin-bottom: 60px;   /* espacio debajo del botón */
+    }
+
+    .game-button:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(90deg, #e0c36d, #f4e1a0);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    footer {
+      margin-top: auto;
+      background: rgba(30, 30, 30, 0.95);
+      padding: 2rem 1rem;
+      border-top: 2px solid #444;
+      color: #ccc;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    footer span {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      .game-button {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+      }
+      footer {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Escenario Medieval</h1>
+    <p>Una aventura 3D creada con Three.js</p>
+  </header>
+
+  <div class="games-container">
+    <h2>Entrega - Actividad 3.5 Diseño de escenario 3D integral</h2>
+    <a href="index.html" target="_blank" class="game-button">
+      Generar Escenario 3D
+    </a>
+  </div>
+
+  <footer>
+    Desarrollado por:
+    <span>
+      Contla Martínez Kevin Bertín - 23200139 | 
+      Olvera Jiménez Ronaldo - 23200151 | 
+      Santiago Padilla Rubén - 23200158 |
+      Aguilar Pérez Nahum - 23200135
+    </span>
+  </footer>
+  </body>
+</html>
